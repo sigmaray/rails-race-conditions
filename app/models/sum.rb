@@ -1,0 +1,2 @@
+class Sum < ApplicationRecord
+end
