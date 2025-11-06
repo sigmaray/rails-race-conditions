@@ -18,6 +18,10 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  # Specify PostgreSQL host name depending on whether running inside Docker or not
+  host: <%= File.exist?('/.dockerenv') ? 'db' : 'localhost' %>
+  username: postgres
+  password: postgres
 
 
 development:
