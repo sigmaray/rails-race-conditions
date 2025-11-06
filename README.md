@@ -11,6 +11,8 @@ https://github.com/sigmaray/rails-race-conditions/pull/2
 # Setup docker containers
 docker compose build
 
+docker compose run app bundle exec rails db:prepare
+
 docker compose run app bundle exec rake simulation_without_race_conditions
 
 docker compose run app bundle exec rake simulation_with_race_conditions
